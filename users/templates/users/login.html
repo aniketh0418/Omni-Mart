@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <!-- Background Image -->
+    <div class="absolute inset-1 z-2">
+        <img src="https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2018/03/street-shopping-in-india-cover.jpg" alt=""
+            class="w-full h-full object-cover filter blur-sm brightness-50">
+    </div>
+
+    <!-- Login Form -->
+    <div class="relative z-10 bg-white p-8 rounded-md shadow-lg">
+      <h1 class="text-3xl font-bold text-center mb-4">Omni Mart</h1>
+        
+        <form action="{% url 'users:login' %}" method="post"method="POST">
+          {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="email">Username</label>
+                {{form.username}}
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="password">Password</label>
+                {{form.password}}
+            </div>
+            <div class="flex items-center justify-between gap-8">
+                <button
+                    class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Sign In
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-cyan-500 hover:text-cyan-800"
+                    href="#">
+                    Forgot Password?
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+  
+</body>
+</html>

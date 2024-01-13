@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Product Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Add any custom styles you want for the confirmation page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7fafc;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .confirmation-message {
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .confirm-btn {
+            background-color: #4caf50;
+            color: #ffffff;
+        }
+
+        .cancel-btn {
+            background-color: #ccc;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-message">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete the product "{{ product.name }}"?</p>
+        </div>
+
+        <div class="btn-container">
+            <form method="post" action="{% url 'users:delete-product' product.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn confirm-btn">Confirm</button>
+            </form>
+            
+            <a href="{% url 'users:vendor' %}" class="btn cancel-btn">Cancel</a>
+        </div>
+    </div>
+</body>
+</html>

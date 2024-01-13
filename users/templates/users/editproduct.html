@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-2xl font-bold mb-6 text-center">Edit Product</h1>
+  
+    <form method="post" class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+        {% csrf_token %}
+        {{ p_form.as_p }}
+        
+        <div class="mt-6">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Save Changes</button>
+            <a href="{% url 'users:vendor' %}" class="ml-2 text-gray-600 hover:underline">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>
